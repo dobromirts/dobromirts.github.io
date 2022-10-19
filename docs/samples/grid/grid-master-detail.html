@@ -1,16 +1,18 @@
 <!DOCTYPE html><html lang="en"><head><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
     <meta charset="utf-8">
-    <!-- <title>Angular Demos with DV</title> -->
     <base href="https://dobromirts.github.io/">
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>HierarchicalGrid | Data Grids built with Ignite UI for Angular</title>
-    <meta property="og:title" content="HierarchicalGrid | Data Grids built with Ignite UI for Angular">
-    <meta property="og:description" content="HierarchicalGridData Grids built with Ignite UI for Angular Description">
+    <title>Angular Grid Master-Detail Example built with Ignite UI for Angular</title>
+    <meta property="og:title" content="Angular Grid Master-Detail Example built with Ignite UI for Angular">
+    <meta property="og:description" content="Angular Grid Master-Detail Example built with Ignite UI for Angular">
+    <meta property="og:url" content="https://www.infragistics.com/angular-demos-lob/grid/grid-master-detail">
     <meta property="og:image" content="https://avatars0.githubusercontent.com/u/5366066?s=400&amp;amp;v=4">
+    <meta property="og:image:width" content="300">
+    <meta property="og:image:height" content="300">
+    <meta property="twitter:image" content="https://avatars0.githubusercontent.com/u/5366066?s=400&amp;amp;v=4">
     <meta property="og:type" content="website">
-    <meta name="twitter:card" content="summary_large_image">
-    <meta property="og:url" content="https://www.infragistics.com">
+    <meta name="twitter:card" content="summary">
     <link rel="icon" type="image/x-icon" href="favicon.ico">
     <style type="text/css">@font-face{font-family:'Material Icons';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/materialicons/v139/flUhRq6tzZclQEJ-Vdg-IuiaDsNcIhQ8tQ.woff2) format('woff2');}.material-icons{font-family:'Material Icons';font-weight:normal;font-style:normal;font-size:24px;line-height:1;letter-spacing:normal;text-transform:none;display:inline-block;white-space:nowrap;word-wrap:normal;direction:ltr;-webkit-font-feature-settings:'liga';-webkit-font-smoothing:antialiased;}</style>
     <style type="text/css">@font-face{font-family:'Titillium Web';font-style:normal;font-weight:300;src:url(https://fonts.gstatic.com/s/titilliumweb/v15/NaPDcZTIAOhVxoMyOr9n_E7ffGjEGIVzY5abuWIGxA.woff2) format('woff2');unicode-range:U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;}@font-face{font-family:'Titillium Web';font-style:normal;font-weight:300;src:url(https://fonts.gstatic.com/s/titilliumweb/v15/NaPDcZTIAOhVxoMyOr9n_E7ffGjEGItzY5abuWI.woff2) format('woff2');unicode-range:U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;}@font-face{font-family:'Titillium Web';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/titilliumweb/v15/NaPecZTIAOhVxoMyOr9n_E7fdM3mDaZRbryhsA.woff2) format('woff2');unicode-range:U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;}@font-face{font-family:'Titillium Web';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/titilliumweb/v15/NaPecZTIAOhVxoMyOr9n_E7fdMPmDaZRbrw.woff2) format('woff2');unicode-range:U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;}@font-face{font-family:'Titillium Web';font-style:normal;font-weight:600;src:url(https://fonts.gstatic.com/s/titilliumweb/v15/NaPDcZTIAOhVxoMyOr9n_E7ffBzCGIVzY5abuWIGxA.woff2) format('woff2');unicode-range:U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;}@font-face{font-family:'Titillium Web';font-style:normal;font-weight:600;src:url(https://fonts.gstatic.com/s/titilliumweb/v15/NaPDcZTIAOhVxoMyOr9n_E7ffBzCGItzY5abuWI.woff2) format('woff2');unicode-range:U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;}@font-face{font-family:'Titillium Web';font-style:normal;font-weight:700;src:url(https://fonts.gstatic.com/s/titilliumweb/v15/NaPDcZTIAOhVxoMyOr9n_E7ffHjDGIVzY5abuWIGxA.woff2) format('woff2');unicode-range:U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;}@font-face{font-family:'Titillium Web';font-style:normal;font-weight:700;src:url(https://fonts.gstatic.com/s/titilliumweb/v15/NaPDcZTIAOhVxoMyOr9n_E7ffHjDGItzY5abuWI.woff2) format('woff2');unicode-range:U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;}</style>
@@ -20,6 +22,6 @@
 
 <body class="igx-typography igx-scrollbar">
     <app-root></app-root>
-<script src="runtime.916103da2e668f8c.js" type="module"></script><script src="polyfills.0f849bc1e830c79a.js" type="module"></script><script src="main.863d6a6cff35c4f6.js" type="module"></script>
+<script src="runtime.916103da2e668f8c.js" type="module"></script><script src="polyfills.0f849bc1e830c79a.js" type="module"></script><script src="main.76aea6160a57ba7d.js" type="module"></script>
 
 </body></html>
